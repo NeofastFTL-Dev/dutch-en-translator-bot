@@ -1,0 +1,19 @@
+[Unit]
+Description=Dutch to English Discord translator bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=translator
+Group=translator
+WorkingDirectory=/opt/dutch-en-translator-bot
+EnvironmentFile=/opt/dutch-en-translator-bot/.env
+ExecStart=/opt/dutch-en-translator-bot/.venv/bin/python /opt/dutch-en-translator-bot/bot.py
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
